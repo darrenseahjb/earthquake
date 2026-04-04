@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "earthquake-monitoring-telegram-bot"
+version = "0.1.0"
+description = "Realtime Telegram bot for global earthquake alerts using USGS feeds."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Darren" }
+]
+dependencies = [
+  "Pillow>=12.1.1",
+  "tzdata>=2025.2",
+]
+
+[project.scripts]
+earthquake-bot = "earthquake_bot.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+earthquake_bot = ["data/*.json"]
